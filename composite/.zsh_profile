@@ -1,0 +1,10 @@
+RPROMPT='%D{%H:%M:%S}'
+
+WD=$(dirname "$(readlink -f "$0")")
+
+source "$WD/../lib/utils.sh"
+
+# Load shell utils
+load_folder_scripts "$WD/../paths"
+load_folder_scripts "$WD/../aliases"
+load_folder_scripts "$WD/../shell"
