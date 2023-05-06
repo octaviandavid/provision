@@ -10,3 +10,4 @@ alias yif="yarn install --frozen-lockfile"
 alias nr="npm run"
 alias syntax=" find . -name '*.js' -not -path '*node_modules*' | xargs -I {} node -c {}"
 
+alias cdk="npx aws-cdk"

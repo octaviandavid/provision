@@ -1,5 +1,5 @@
 function line(){
-  printf "\n $1\n"
+  printf "\n $@\n"
 }
 
 function dump(){
