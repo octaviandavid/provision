@@ -45,6 +45,12 @@ ksecrets(){
 	kubectl get secret $1 -o json |
 	jq -r '.data  | to_entries | .[]|[.key, .value]|  @tsv' |
   awk 'BEGIN {FS="\t"} {print $1} {cmd="echo "$2"| base64 -d"; cmd| getline v; print v} {print $3}'
-
 }
 
+# removes the finalizer from a k8s resource to allow deletion
+# kubectl patch crd/istiooperators.install.istio.io -p '{"metadata":{"finalizers":[]}}' --type=merge
+# kubectl patch -n cloudformation cloudformationstack demo-stack -p="{}" --type=merge 
+kfinalize(){
+	echo $@
+	kubectl patch $@ -p '{"metadata":{"finalizers":[]}}' --type=merge
+}

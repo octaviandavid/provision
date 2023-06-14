@@ -21,6 +21,11 @@ function ap {
     aws configure list --output json
 }
 
+# show current aws profile
+function app {
+    aws sts get-caller-identity | jq
+}
+
 # change profile
 function ax {
     TEMP=$(aws configure list-profiles | fzf)
