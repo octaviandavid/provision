@@ -3,6 +3,9 @@
 export KUBE_EDITOR="code -w"
 
 alias k="kubectl"
+alias kd="kubectl describe"
+alias kg="kubectl get"
+alias kn="kubens"
 alias ks="kubectl config current-context"
 alias kx="kubectx"
 
