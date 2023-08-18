@@ -4,6 +4,9 @@ WD=$(dirname "$(readlink -f "$0")")
 
 source "$WD/../lib/utils.sh"
 
+# Load env vars
+source "$WD/../lib/env.sh"
+
 # Load shell utils
 load_folder_scripts "$WD/../paths"
 load_folder_scripts "$WD/../aliases"

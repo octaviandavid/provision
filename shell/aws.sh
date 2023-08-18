@@ -4,6 +4,8 @@ function install_awscli {
     cd $HOME
     mkdir -p ~/soft
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    
+    read -p "Are you sure? (y/Y) " -n 1 -r
     unzip awscliv2.zip
     ./aws/install --bin-dir ~/.local/bin --install-dir ~/soft/aws-cli --update
     rm -rf awscliv2.zip aws

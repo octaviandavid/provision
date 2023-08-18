@@ -3,9 +3,14 @@
 export KUBE_EDITOR="code -w"
 
 alias k="kubectl"
+alias kc="kubectl apply -f"
 alias kd="kubectl describe"
 alias kg="kubectl get"
+alias ka="kubectl get -A"
+alias ko="kubectl get -o yaml"
+alias kao="kubectl get -A -o yaml"
 alias kn="kubens"
+alias kr="kubectl delete -f"
 alias ks="kubectl config current-context"
 alias kx="kubectx"
 
@@ -51,9 +56,8 @@ ksecrets(){
 }
 
 # removes the finalizer from a k8s resource to allow deletion
-# kubectl patch crd/istiooperators.install.istio.io -p '{"metadata":{"finalizers":[]}}' --type=merge
-# kubectl patch -n cloudformation cloudformationstack demo-stack -p="{}" --type=merge 
+# kubectl patch crd/istiooperators.install.istio.io -p '{"metadata":{"finalizers":[]}}' --type=merge 
 kfinalize(){
-	echo $@
-	kubectl patch $@ -p '{"metadata":{"finalizers":[]}}' --type=merge
+	echo removing finalizer from $@
+	kubectl patch $@ -p '{"metadata":{"finalizers":null}}' --type=merge 
 }
