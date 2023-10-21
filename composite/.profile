@@ -6,3 +6,4 @@ export BROWSER=/usr/bin/chromium
 export TERMINAL=alacritty
 
 
+. "$HOME/.cargo/env"
