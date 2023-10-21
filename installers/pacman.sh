@@ -4,6 +4,7 @@ packages=(
   age               # encryption tool
   bat               # cat replacement
   bind              # includes dig
+  bitwarden         # password manager
   brave-browser     # browser
   broot             # file manager
   calibre           # ebook manager
@@ -19,13 +20,20 @@ packages=(
   flameshot         # screenshot tool
   flatpak           # package manager
   # fzf               # fuzzy finder - from arkade
-  git               # version control 
+  ghex              # hex editor
+  git               # version control
+  gnome-calculator  # calculator
+  gnupg             # encryption tool
+  gparted           # partition manager
+  gprename          # batch rename
+  keepass         # password manager
   # jq                # json parser - from arkade
   mariadb-clients   # mysql client
   mc                # file manager
   mcfly             # history manager
   meld              # diff tool
   mousepad          # text editor
+  mp3wrap           # mp3 wrapper / joiner
   net-tools         # includes ifconfig netstat
   nmap              # network scanner
   nnn               # file manager
@@ -36,7 +44,9 @@ packages=(
   rclone            # cloud storage
   redshift          # screen temperature
   ripgrep           # grep replacement
-  sops              # encryption tool 
+  screenfetch       # system info
+  signal-desktop    # messaging
+  sops              # encryption tool - from arkade
   tldr              # simplified man pages
   tmux              # terminal multiplexer
   traceroute        # trace route
@@ -52,7 +62,14 @@ packages=(
 sudo pacman -S ${packages[@]}
 
 aur=(
-  flatseal
+  slack-desktop
 )
 
 # yay -S ${aur[@]}
+
+flatpaks=(
+  com.github.Murmele.Gittyup
+  com.github.tchx84.Flatseal
+)
+
+flatpak install flathub ${flatpaks[@]}
