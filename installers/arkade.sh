@@ -5,42 +5,36 @@ curl -sLS https://get.arkade.dev | sh
 mkdir -p ~/.arkade/bin
 mv arkade ~/.arkade/bin
 
+# temporarily add arkade to path
+function ark() {
+  PATH=~/.arkade/bin:$PATH arkade $@
+}
+
+
 ark get minikube       # for creating a locker k8s cluster (using docker)
-# minikube version
 
-ark get kubectl        # for interacting with the cluster API
-# kubectl version 
-
-ark get helm           # for charts (bundles for k8s manifest files)
-# helm version
-
-ark get krew           # for extra kubectl plugins
-# krew version
-
-ark get kubectx        # for switching clusters at ease
-
-ark get kubens         # for switching cluster namespaces
-
-ark get jq             # JSON query - used in many of our scripts
-# jq --version
-
-ark get yq             # yaml query - used in some of our scripts
-# yq --version
-
+# docker related
+ark get docker-compose # - self explanatory
 ark get dive           # check docker image layers
-# dive version
 
+# main kubernetes CLIs
+ark get kubectl        # for interacting with the cluster API
+ark get helm           # for charts (bundles for k8s manifest files)
+ark get krew           # for extra kubectl plugins
+ark get kubectx        # for switching clusters at ease
+ark get kubens         # for switching cluster namespaces
+ark get k9s            # k8s terminal UI 
+ark get sops           # decript age encrypted secrets stored in git 
+
+# generic tools 
+ark get fzf            # interactive selector - used in many of our scripts
+ark get jq             # JSON query - used in many of our scripts
+ark get yq             # yaml query - used in some of our scripts
+
+# specialized CLIs
 ark get flux           # for gitops
-# flux --version
-
 ark get kustomize      # for testing kustomization patches locally
-# kustomize version
-
 ark get nats           # for the pub-sub 
-# nats --version
-
-ark get nats-server    # starting a local nats server
-
+ark get nats-server    # local nats server
 ark get opa            # policy engine using Rego language
 
-#ark get sops           # mozilla sops - currently having issues with this one
