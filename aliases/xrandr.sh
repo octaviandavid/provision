@@ -1,10 +1,82 @@
 #!/usr/bin/bash
 
-alias xleft='xrandr --output DP-1 --auto --left-of eDP-1'
-alias xright='xrandr --output DP-1 --auto --right-of eDP-1'
-alias xtop='xrandr --output DP-1 --auto --above eDP-1'
-alias xbottom='xrandr --output DP-1 --auto --below eDP-1'
+export XRANDR_MODE="1920x1080"
 
-alias xsame='xrandr --output DP-1-2 --auto --same-as eDP-1'
+function xfind() {
+  CONNECTED=$(xrandr | grep -E "^DP-1-[0-9] connected|HDMI-[0-9] connected")
+  
+  case $CONNECTED in
+    DP-1-[0-9]*)
+      echo $CONNECTED | grep -oE "DP-1-[0-9]"
+      ;;
+    HDMI-[0-9]*)
+      echo $CONNECTED | grep -oE "HDMI-[0-9]"
+      ;;
+    *)
+      echo ""
+      return 1
+      ;;
+  esac
+}
 
-alias xclear='xrandr -s 0'
+# alias xclear='xrandr --size 0'
+
+function xclear() {
+  CONNECTED=$(xfind)
+  if [ -z "$CONNECTED" ]; then
+    echo "No external monitor found"
+    return 1
+  fi
+  echo "Turning off $CONNECTED"
+  xrandr --output $CONNECTED --off
+}
+
+function xsame() {
+  CONNECTED=$(xfind)
+  if [ -z "$CONNECTED" ]; then
+    echo "No external monitor found"
+    return 1
+  fi
+
+  xrandr --output $CONNECTED --mode $XRANDR_MODE --same-as eDP-1
+}
+
+function xleft() {
+  CONNECTED=$(xfind)
+  if [ -z "$CONNECTED" ]; then
+    echo "No external monitor found"
+    return 1
+  fi
+
+  xrandr --output $CONNECTED --mode $XRANDR_MODE --auto --left-of eDP-1
+}
+
+function xright() {
+  CONNECTED=$(xfind)
+  if [ -z "$CONNECTED" ]; then
+    echo "No external monitor found"
+    return 1
+  fi
+
+  xrandr --output $CONNECTED --mode $XRANDR_MODE --auto --right-of eDP-1
+}
+
+function xtop() {
+  CONNECTED=$(xfind)
+  if [ -z "$CONNECTED" ]; then
+    echo "No external monitor found"
+    return 1
+  fi
+
+  xrandr --output $CONNECTED --mode $XRANDR_MODE --auto --above eDP-1
+}
+
+function xbottom() {
+  CONNECTED=$(xfind)
+  if [ -z "$CONNECTED" ]; then
+    echo "No external monitor found"
+    return 1
+  fi
+
+  xrandr --output $CONNECTED --mode $XRANDR_MODE --auto --below eDP-1
+}
