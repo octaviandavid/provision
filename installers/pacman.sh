@@ -68,8 +68,9 @@ aur=(
 # yay -S ${aur[@]}
 
 flatpaks=(
-  com.github.Murmele.Gittyup
-  com.github.tchx84.Flatseal
+  com.github.Murmele.Gittyup        # git client
+  com.github.tchx84.Flatseal        # flatpak permissions
+  com.github.geigi.cozy             # audiobook player
 )
 
 flatpak install flathub ${flatpaks[@]}
