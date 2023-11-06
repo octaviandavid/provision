@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# official list of packages in manjaro i3
+# https://gitlab.manjaro.org/profiles-and-settings/iso-profiles/-/blob/master/community/i3/Packages-Desktop
+
 packages=(
   age               # encryption tool
   bat               # cat replacement
