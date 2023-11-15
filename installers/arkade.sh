@@ -11,11 +11,14 @@ function ark() {
 }
 
 
-ark get minikube       # for creating a locker k8s cluster (using docker)
+ark get minikube       # for creating a local k8s cluster (using docker)
+ark get kind           # for creating a local k8s cluster (using docker)
+ark get k3d            # for creating a local k3s cluster (using docker)
 
 # docker related
 ark get docker-compose # - self explanatory
 ark get dive           # check docker image layers
+ark get vagrant       # for creating a local VM (using virtualbox)
 
 # main kubernetes CLIs
 ark get kubectl        # for interacting with the cluster API
@@ -32,6 +35,7 @@ ark get jq             # JSON query - used in many of our scripts
 ark get yq             # yaml query - used in some of our scripts
 
 # specialized CLIs
+ark get eksctl         # for creating AWS EKS clusters with CloudFormation
 ark get flux           # for gitops
 ark get kustomize      # for testing kustomization patches locally
 ark get nats           # for the pub-sub 
