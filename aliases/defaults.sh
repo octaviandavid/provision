@@ -8,6 +8,8 @@ alias s="source"
 alias c="clear"
 alias g="grep"
 
+alias ls="exa"
+
 # git
 alias gs="git status"
 # fix git merge alias of zsh that highjacks GraphicsMagick

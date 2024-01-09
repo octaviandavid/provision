@@ -36,6 +36,16 @@ function ax {
     echo $AWS_PROFILE > ~/.aws/.aws_profile
 }
 
+function aws_ecr_login {
+    REGION=$(aws configure get region)
+    ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+
+    echo "ECR login on Region: $REGION Account: $ACCOUNT"
+
+    aws ecr get-login-password --region $REGION | \
+        docker login --username AWS --password-stdin $ACCOUNT.dkr.ecr.$REGION.amazonaws.com
+}
+
 # load profile from file if it exists
 if [ -f ~/.aws/.aws_profile ]; then
     export AWS_PROFILE=$(cat ~/.aws/.aws_profile)
