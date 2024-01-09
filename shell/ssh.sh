@@ -2,10 +2,10 @@
 
 ssh_clean_known_hosts() {
     echo "Cleaning known_hosts"
-    HOST=${1:-cnn.com}
-    ssh-keygen -R $HOST
+    # HOST=${1:-cnn.com}
+    # ssh-keygen -R $HOST
 
-    sort ~/.ssh/known_hosts | uniq > ~/.ssh/known_hosts.uniq
-    mv ~/.ssh/known_hosts.{uniq,}
+    sort -u ~/.ssh/known_hosts > ~/.ssh/known_hosts.temp
+    mv ~/.ssh/known_hosts.{temp,}
 
 }
