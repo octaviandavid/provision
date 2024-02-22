@@ -2,34 +2,47 @@
 
 # official list of packages in manjaro i3
 # https://gitlab.manjaro.org/profiles-and-settings/iso-profiles/-/blob/master/community/i3/Packages-Desktop
+# there are 2 types of images: minimal and full
+# the ones marked as >extra are not installed by default on the minimal image
+
+# https://forum.manjaro.org/c/announcements/11
 
 packages=(
   age               # encryption tool
+  apparmor          # security access control >extra
   bat               # cat replacement
   bind              # includes dig
   bitwarden         # password manager
+  blueman           # GTK bluetooth manager >extra
+  # bluez-utils       # bluetooth tools >extra
   brave-browser     # browser
   broot             # file manager
   calibre           # ebook manager
   # chromium          # browser
-  curl              # http client
+  curl              # http client >extra
   dbeaver           # database manager
+  downgrade         # downgrade packages >extra
   easytag           # mp3 tag editor
   # emacs             # text editor
   exa               # ls replacement
   fd                # find replacement
   feh               # image viewer
+  ffmpeg            # video and audio converter >extra
+  ffmpegthumbnailer # video thumbnailer >extra
   firefox           # browser
+  flac              # audio codec
   flameshot         # screenshot tool
   flatpak           # package manager
   # fzf               # fuzzy finder - from arkade
-  ghex              # hex editor
-  git               # version control
+  gcc               # compiler >extra
+  ghex              # hex viewer/editor
+  gimp              # image editor >extra 
+  git               # version control >extra
   gnome-calculator  # calculator
   gnupg             # encryption tool
-  gparted           # partition manager
+  gparted           # partition manager >extra
   gprename          # batch rename
-  keepass         # password manager
+  keepass           # password manager
   # jq                # json parser - from arkade
   mariadb-clients   # mysql client
   mc                # file manager
@@ -50,6 +63,7 @@ packages=(
   screenfetch       # system info
   signal-desktop    # messaging
   sops              # encryption tool - from arkade
+  stow              # symlink manager
   tldr              # simplified man pages
   tmux              # terminal multiplexer
   traceroute        # trace route

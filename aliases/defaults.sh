@@ -7,6 +7,8 @@ alias cat="bat"
 alias s="source"
 alias c="clear"
 alias g="grep"
+alias gi="grep -i"
+alias ge="grep -E"
 
 alias ls="exa"
 

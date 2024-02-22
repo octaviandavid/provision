@@ -34,7 +34,7 @@ ke(){
 
 # k8 logs with bunys
 kl(){
-	kubectl logs `pod $1` -f --tail 20 |  pp
+	kubectl logs `pod $1` -f --tail 20 
 }
 
 alias kap="kubectl resource-capacity"
