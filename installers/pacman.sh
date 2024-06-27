@@ -88,6 +88,8 @@ flatpaks=(
   com.github.Murmele.Gittyup        # git client
   com.github.tchx84.Flatseal        # flatpak permissions
   com.github.geigi.cozy             # audiobook player
+  io.dbeaver.DBeaverCommunity       # database manager
+  com.mongodb.Compass               # mongodb client
 )
 
 flatpak install flathub ${flatpaks[@]}

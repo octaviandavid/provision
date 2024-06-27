@@ -9,3 +9,8 @@ ssh_clean_known_hosts() {
     mv ~/.ssh/known_hosts.{temp,}
 
 }
+
+ssh_clean_one() {
+    echo "Cleaning known_hosts for $1"
+    ssh-keygen -R $1
+}

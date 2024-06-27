@@ -1,5 +1,14 @@
 RPROMPT='%D{%H:%M:%S}'
 
+export LC_ALL="en_US.UTF-8"
+
+#export STARSHIP_CONFIG=$HOME/.config/starship.toml
+#eval "$(starship init zsh)"
+
+
+# Load zsh profiling
+# zmodload zsh/zprof
+
 WD=$(dirname "$(readlink -f "$0")")
 
 source "$WD/../lib/utils.sh"
@@ -11,3 +20,6 @@ source "$WD/../lib/env.sh"
 load_folder_scripts "$WD/../paths"
 load_folder_scripts "$WD/../aliases"
 load_folder_scripts "$WD/../shell"
+
+# Show zsh profiling results
+# zprof

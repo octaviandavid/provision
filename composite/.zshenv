@@ -1,1 +1,2 @@
-. "$HOME/.cargo/env"
+
+export BAT_THEME="OneHalfLight"

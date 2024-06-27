@@ -16,7 +16,7 @@ ark get kind           # for creating a local k8s cluster (using docker)
 ark get k3d            # for creating a local k3s cluster (using docker)
 
 # docker related
-ark get docker-compose # - self explanatory
+# ark get docker-compose # - switched to system package
 ark get dive           # check docker image layers
 ark get vagrant       # for creating a local VM (using virtualbox)
 

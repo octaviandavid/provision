@@ -14,7 +14,10 @@ function fileDate(){
 function load_folder_scripts {
   for FILE in $(find $1 -type f -name '*.sh')
   do
+    # MILISECONDS=$(date +%s%N | cut -b1-13)
     source $FILE
+    # MILISECONDS=$(($(date +%s%N | cut -b1-13) - $MILISECONDS))
+    # echo "Loaded $FILE in $MILISECONDS ms"
   done
 }
 
